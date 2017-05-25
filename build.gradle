@@ -2,7 +2,7 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -11,6 +11,9 @@ repositories {
 ext.seleniumVersion = '2.41.0'
 
 dependencies {
+    apply plugin: 'maven'
+    compileOnly("org.projectlombok:lombok:1.16.16")
+    compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.6.1'
     compile group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version:seleniumVersion
     compile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version:seleniumVersion
     compile group: 'org.seleniumhq.selenium', name: 'selenium-api', version:seleniumVersion
